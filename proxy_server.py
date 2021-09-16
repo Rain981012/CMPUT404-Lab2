@@ -1,9 +1,9 @@
 import socket
-import time
 import sys
+import time
 
 #define global address & buffer size
-HOST = ""
+HOST = "localhost"
 PORT = 8001
 BUFFER_SIZE = 1024
 
@@ -52,7 +52,7 @@ def main():
                 send_full_data = conn.recv(BUFFER_SIZE)
                 print(f'Sending received data {send_full_data} to google')
 
-                proxy_end(send_full_data)
+                proxy_end.sendall(send_full_data)
 
                 #remember to shutdown!
                 #shutdown() is different to close(), shutdown is a flexible way
@@ -71,3 +71,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
